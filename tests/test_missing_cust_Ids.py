@@ -1,8 +1,8 @@
 from pyspark.sql.window import Window
 from pyspark.sql import functions as F
 
-def test_find_sequence_gaps(spark_local_session):
-    df = spark_local_session.read.format("csv") \
+def test_find_sequence_gaps(spark):
+    df = spark.read.format("csv") \
     .option("header", "true") \
     .option("inferSchema", "true") \
     .load("D:/44.44_PythonProjects/DataRepoForPracticse/taxi_zone_lookup.csv")
@@ -14,7 +14,7 @@ def test_find_sequence_gaps(spark_local_session):
     # Lead gets the value of the NEXT row
     df_with_next = df.withColumn("next_id", F.lead("LocationID").over(window_spec))
 
-    last5 = spark_local_session.createDataFrame(df_with_next.tail(5))
+    last5 = spark.createDataFrame(df_with_next.tail(5))
     last5.show()
 
     
