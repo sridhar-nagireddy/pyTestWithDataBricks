@@ -48,14 +48,11 @@ def pytest_sessionstart(session):
     logger.info(f"########### Target Environment Config Variables END ##########)")
 
 @pytest.fixture(scope="session")
-def spark_local_session():
+def spark():
     # 1. Set Python-side logging for the py4j gateway
-    logging.getLogger("py4j").setLevel(logging.ERROR)
-    spark = (SparkSession.builder
-             .master("local[1]")
-             .appName("pytest-pyspark-local")
-             .getOrCreate())
+    # logging.getLogger("py4j").setLevel(logging.ERROR)
+    spark = SparkSession.builder.getOrCreate()
     # This silences the noisy internal JVM logs
-    spark.sparkContext.setLogLevel("ERROR") 
+    # spark.sparkContext.setLogLevel("ERROR") 
     yield spark
     spark.stop()
