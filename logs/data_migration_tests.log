@@ -21,3 +21,8 @@ features:
   enable_logging: true
 
 INFO     conftest:conftest.py:48 ########### Target Environment Config Variables END ##########)
+INFO     test_logging:test_logging.py:6 Starting the test.for logs..
+DEBUG    test_logging:test_logging.py:7 This is a debug message
+INFO     test_logging:test_logging.py:9 This is a info message.
+ERROR    test_logging:test_logging.py:10 This is a error message.
+WARNING  test_logging:test_logging.py:11 This is a warning message.
