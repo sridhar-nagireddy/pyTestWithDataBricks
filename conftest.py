@@ -57,4 +57,3 @@ def spark():
     # This silences the noisy internal JVM logs
     # spark.sparkContext.setLogLevel("ERROR") 
     yield spark
-    spark.stop()
