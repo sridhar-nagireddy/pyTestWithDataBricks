@@ -1,7 +1,9 @@
+import builtins
 from pyspark.sql.window import Window
 from pyspark.sql import functions as F
 
-def test_find_sequence_gaps(spark):
+def test_find_sequence_gaps():
+    spark = builtins.spark_session
     df = spark.read.format("csv") \
     .option("header", "true") \
     .option("inferSchema", "true") \

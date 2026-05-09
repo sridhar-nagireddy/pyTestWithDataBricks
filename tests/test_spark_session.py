@@ -1,4 +1,7 @@
-def test_file_exists_in_volume(spark):
+import builtins
+
+def test_file_exists_in_volume():
+    spark = builtins.spark_session
     # Testing a table in Unity Catalog or Hive Metastore
     df = spark.read.format("csv") \
     .option("header", "true") \

@@ -1,8 +1,9 @@
 from chispa.dataframe_comparer import assert_df_equality
 import logging
+import builtins
 
-def test_data_integrity(spark):
- 
+def test_data_integrity():
+    spark = builtins.spark_session
     logger = logging.getLogger(__name__)
     expected_data = [(1, "A"), (2, "B")]
     # Data from Databricks
