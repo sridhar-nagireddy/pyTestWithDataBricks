@@ -6,6 +6,7 @@ import inspect
 from pyspark.sql import SparkSession
 
 
+
 # from databricks.connect import DatabricksSession
 
 # @pytest.fixture(scope="session")
@@ -48,12 +49,12 @@ def pytest_sessionstart(session):
     logger.info(f"########### Target Environment Config Variables END ##########)")
 
 @pytest.fixture(scope="session")
-def spark():
+def spark_session():
     # 1. Set Python-side logging for the py4j gateway
     # logging.getLogger("py4j").setLevel(logging.ERROR)
     # spark = SparkSession.builder.getOrCreate()
     # use global notebook spark session
-    global spark
+    spark = globals()["spark"]
     # This silences the noisy internal JVM logs
     # spark.sparkContext.setLogLevel("ERROR") 
     yield spark
