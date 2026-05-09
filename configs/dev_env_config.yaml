@@ -1,0 +1,27 @@
+#About this Env
+environment_indicator: "dev"
+# Application Settings
+app:
+  name: "MyPythonApp"
+  port: 8080
+  debug: true
+
+# Database Configuration
+database:
+  host: "localhost"
+  port: 5432
+  user: "admin"
+  # Keep sensitive data in environment variables if possible
+  password: "${DB_PASSWORD}"
+
+# External API Integration
+api_services:
+  timeout_seconds: 30
+  endpoints:
+    - "https://stripe.com"
+    - "https://sendgrid.com"
+
+# Feature Flags
+features:
+  enable_logging: true
+  beta_access: false

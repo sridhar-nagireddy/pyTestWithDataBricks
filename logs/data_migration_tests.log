@@ -1,0 +1,23 @@
+INFO     conftest:conftest.py:44 --- PyTest Session Started TEST RUN STARTED ---
+INFO     conftest:conftest.py:45 Target Environment: dev
+INFO     conftest:conftest.py:46 ########### Target Environment Config Variables START ##########)
+INFO     conftest:conftest.py:47 api_services:
+  endpoints:
+  - https://stripe.com
+  - https://sendgrid.com
+  timeout_seconds: 30
+app:
+  debug: true
+  name: MyPythonApp
+  port: 8080
+database:
+  host: localhost
+  password: ${DB_PASSWORD}
+  port: 5432
+  user: admin
+environment_indicator: dev
+features:
+  beta_access: false
+  enable_logging: true
+
+INFO     conftest:conftest.py:48 ########### Target Environment Config Variables END ##########)

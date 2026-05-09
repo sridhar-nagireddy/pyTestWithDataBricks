@@ -1,0 +1,26 @@
+{
+    "dev": {
+        "test_environment": "dev",
+        "base_url": "https://example.com",
+        "api_key": "dev-123",
+        "log_level": "DEBUG"
+    },
+    "test1": {
+        "test_environment": "test1",
+        "base_url": "https://example.com",
+        "api_key": "dev-123",
+        "log_level": "INFO"
+    },
+    "staging": {
+        "test_environment": "staging",
+        "base_url": "https://example.com",
+        "api_key": "stg-456",
+        "log_level": "INFO"
+    },
+    "prod": {
+        "test_environment": "prod",
+        "base_url": "https://example.com",
+        "api_key": "prod-789",
+        "log_level": "ERROR"
+    }
+}

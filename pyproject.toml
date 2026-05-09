@@ -1,0 +1,46 @@
+##################################################
+[tool.poetry]
+name = "pytestwithdatabricks"
+version = "0.1.0"
+description = ""
+authors = ["sridhar <sridharnagireddy@gmail.com>"]
+readme = "README.md"
+##################################################
+[tool.poetry.dependencies]
+python = "^3.12"
+# Ensure this version matches your Databricks Runtime (e.g., 14.3)
+databricks-connect = "15.1.*"
+setuptools = "^82.0.1"
+pyspark = "^4.1.1"
+pyyml = "^0.0.2"
+##################################################
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+chispa = "^0.12.0"
+#'''
+#Chispa is a Python library used alongside Pytest to simplify testing for
+#PySpark applications. It provides specialized assertion methods that handle
+#the complexities of Spark DataFrames, such as row order and schema nuances,
+#which standard Pytest assertions cannot
+#'''
+##################################################
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+##################################################
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Enable live logging to console during tests
+log_cli = true
+log_cli_level = "DEBUG"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+# Log to a file for audit/debugging after test runs
+log_file = "logs/data_migration_tests.log"
+log_file_level = "DEBUG"
+pythonpath = ["src"]
+addopts = "-v --durations=10"
+# Spark specific: suppress overly verbose logs during tests
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
