@@ -5,7 +5,7 @@ def test_find_sequence_gaps(spark):
     df = spark.read.format("csv") \
     .option("header", "true") \
     .option("inferSchema", "true") \
-    .load("D:/44.44_PythonProjects/DataRepoForPracticse/taxi_zone_lookup.csv")
+    .load('dbfs:/Volumes/sriunitycatalog/default/srivolume/taxi_zone_lookup.csv')
     assert df.count() > 0
 
     # Define window sorted by ID
