@@ -50,7 +50,7 @@ def pytest_sessionstart(session):
 @pytest.fixture(scope="session")
 def spark():
     # 1. Set Python-side logging for the py4j gateway
-    # logging.getLogger("py4j").setLevel(logging.ERROR)
+    logging.getLogger("py4j").setLevel(logging.ERROR)
     spark = SparkSession.builder.getOrCreate()
     # This silences the noisy internal JVM logs
     # spark.sparkContext.setLogLevel("ERROR") 
